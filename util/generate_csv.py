@@ -7,6 +7,7 @@ import time as t
 import sys
 from os.path import isfile,isdir
 from os import mkdir
+from unidecode import unidecode
 
 chunk_size = 1024*10
 
@@ -53,18 +54,51 @@ def processor(lang):
             if not isfile(f"./pdfs/txts/{pdf_filename}.txt"):
                 
                 doc = pymupdf.open(f"./pdfs/{pdf_filename}.pdf")
-                out = open(f"./pdfs/txts/{pdf_filename}.txt", "wb")
+                out = open(f"./pdfs/txts/{pdf_filename}.txt", "w")
                 for page in doc:
-                    full_text = page.get_text("text").encode("utf8")
-                    out.write(full_text)
-                    out.write(bytes((12,)))
+                    out.write(page.get_text("text"))
                 out.close()
-            else:
-                
-                doc = pymupdf.open(f"./pdfs/txts/{pdf_filename}.txt")
-                for page in doc:
-                    full_text = page.get_text("text").encode("utf8")
-                
+            
+            with open(f"./pdfs/txts/{pdf_filename}.txt", "r") as f:
+                full_text = f.read()
+                full_text = unidecode(full_text)
+                full_text = full_text.replace("\n", " ")
+                full_text = full_text.replace("\r", " ")
+                full_text = full_text.replace("\t", " ")
+                full_text = full_text.replace("\f", " ")
+                full_text = full_text.replace("\v", " ")
+                full_text = full_text.replace("\b", " ")
+                full_text = full_text.replace("\a", " ")
+                full_text = full_text.replace("\e", " ")
+                full_text = full_text.replace("\x0b", " ")
+                full_text = full_text.replace("\x0c", " ")
+                full_text = full_text.replace("\x0e", " ")
+                full_text = full_text.replace("\x0f", " ")
+                full_text = full_text.replace("\x10", " ")
+                full_text = full_text.replace("\x11", " ")
+                full_text = full_text.replace("\x12", " ")
+                full_text = full_text.replace("\x13", " ")
+                full_text = full_text.replace("\x14", " ")
+                full_text = full_text.replace("\x15", " ")
+                full_text = full_text.replace("\x16", " ")
+                full_text = full_text.replace("\x17", " ")
+                full_text = full_text.replace("\x18", " ")
+                full_text = full_text.replace("\x19", " ")
+                full_text = full_text.replace("\x1a", " ")
+                full_text = full_text.replace("\x1b", " ")
+                full_text = full_text.replace("\x1c", " ")
+                full_text = full_text.replace("\x1d", " ")
+                full_text = full_text.replace("\x1e", " ")
+                full_text = full_text.replace("\x1f", " ")
+                full_text = full_text.replace("\x7f", " ")
+                full_text = full_text.replace("\x80", " ")
+                full_text = full_text.replace("\x81", " ")
+                full_text = full_text.replace("\x82", " ")
+                full_text = full_text.replace("\x83", " ")
+                full_text = full_text.replace("\x84", " ")
+                full_text = full_text.replace("\x85", " ")
+                full_text = full_text.replace("\x86", " ")
+                full_text = full_text.replace("\x87", " ")
             
             record["fulltext"] = full_text
                 
@@ -79,7 +113,7 @@ def processor(lang):
     header = ["category", "fulltext"]
     # create csv
     with open(f"./jsons/{lang}.json", 'w') as f:
-        writer=c.writer(f, delimiter=',', lineterminator='\n', dialect='unix')
+        writer=c.writer(f, delimiter=',', dialect='unix')
         writer.writerow(header)
     
         for row in records:
@@ -91,7 +125,7 @@ def processor(lang):
 
 if __name__ == "__main__":
 
-    urllist = "scraped_urls.xlsx"
+    urllist = "scraped_urls1.xlsx"
     print(f"processing {urllist}")
     processor(urllist)
 
