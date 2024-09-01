@@ -51,15 +51,15 @@ def processor(lang):
             full_text = ""
                 
                 
-            if not isfile(f"./pdfs/txts/{pdf_filename}.txt"):
+            if not isfile(f"./txts/{pdf_filename}.txt"):
                 
                 doc = pymupdf.open(f"./pdfs/{pdf_filename}.pdf")
-                out = open(f"./pdfs/txts/{pdf_filename}.txt", "w")
+                out = open(f"./txts/{pdf_filename}.txt", "w")
                 for page in doc:
                     out.write(page.get_text("text"))
                 out.close()
             
-            with open(f"./pdfs/txts/{pdf_filename}.txt", "r") as f:
+            with open(f"./txts/{pdf_filename}.txt", "r") as f:
                 full_text = f.read()
                 full_text = unidecode(full_text)
                 full_text = full_text.replace("\n", " ")
@@ -112,7 +112,7 @@ def processor(lang):
 
     header = ["category", "fulltext"]
     # create csv
-    with open(f"./jsons/{lang}.json", 'w') as f:
+    with open(f"./../data/data.csv", 'w') as f:
         writer=c.writer(f, delimiter=',', dialect='unix')
         writer.writerow(header)
     
