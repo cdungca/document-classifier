@@ -43,7 +43,7 @@ def processor(lang):
             pass
         else:
             print(f"downloading {url}")
-            ####
+            
             class TLSAdapter(requests.adapters.HTTPAdapter):
                 def init_poolmanager(self, *args, **kwargs):
                     ctx = ssl.create_default_context()
@@ -52,10 +52,10 @@ def processor(lang):
                     ctx.options |= 0x4
                     kwargs["ssl_context"] = ctx
                     return super(TLSAdapter, self).init_poolmanager(*args, **kwargs)
-  
+   
+
             with requests.session() as s:
                 s.mount("https://", TLSAdapter())
-            ####
                 res = s.get(row.url, stream=True)
                 if res.status_code != 200:
                     print(count, "[URL ERROR]", res.status_code, row.url)
@@ -130,30 +130,23 @@ def processor(lang):
 
             
 
-        
-        # create csv
-        with open(f"./../data/data.csv", 'a') as f:
-            writer=c.writer(f, delimiter=',', dialect='unix')
-               
-            for row in records:
-                writer.writerow([row["category"], row["fulltext"]])
-        f.close()
+            header = ["category", "fulltext"]
+            # create csv
+            with open(f"./../data/data.csv", 'w') as f:
+                writer=c.writer(f, delimiter=',', dialect='unix')
+                writer.writerow(header)
     
-        records = []
+                for row in records:
+                    writer.writerow([row["category"], row["fulltext"]])
+    
+            records = []
 
-        print(lang, "total records:", line_count, "/ failed records:", error_count, "/ skipped records:", skip_count, "/ processed records:", count)
+            print(lang, "total records:", line_count, "/ failed records:", error_count, "/ skipped records:", skip_count, "/ processed records:", count)
 
 if __name__ == "__main__":
 
     #urllist = "scraped_urls.xlsx"
     urllist = "scrapefull.csv"
-
-    header = ["category", "fulltext"]
-    # create csv
-    with open(f"./../data/data.csv", 'w') as f:
-        writer=c.writer(f, delimiter=',', dialect='unix')
-        writer.writerow(header)
-    f.close()
     print(f"processing {urllist}")
     processor(urllist)
 
