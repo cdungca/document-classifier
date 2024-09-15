@@ -8,7 +8,7 @@ import sys
 from os.path import isfile,isdir
 from os import mkdir
 from unidecode import unidecode
-import requests.packages.urllib3.exceptions as urllib3_exceptions
+#import requests.packages.urllib3.exceptions as urllib3_exceptions
 import warnings
 import ssl
 warnings.simplefilter("ignore", urllib3_exceptions.InsecureRequestWarning)
