@@ -4,7 +4,7 @@ import ssl
 import warnings
 from openpyxl import Workbook
 import csv as csv
-#import requests.packages.urllib3.exceptions as urllib3_exceptions
+import requests.packages.urllib3.exceptions as urllib3_exceptions
 warnings.simplefilter("ignore", urllib3_exceptions.InsecureRequestWarning)
 
 def extract_url(sourceurl, category):
