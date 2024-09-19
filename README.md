@@ -56,18 +56,32 @@ Here are the results using different combinations of model, feature extraction (
 ### Bag-of-words (CountVectorizer)
 
 1. Logical Regression - Default Parameters - Accuracy => **55.77%**
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_default.png "Confusion Matrix: Logistic Regression - Default Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_default.png "Bag-of-words: Confusion Matrix: Logistic Regression - Default Parameters")
 2. Logical Regression - Best Parameters - Accuracy => 
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_best.png "Confusion Matrix: Logistic Regression - Best Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_best.png "Bag-of-words: Confusion Matrix: Logistic Regression - Best Parameters")
 3. Naive Bayes - Default Parameters - Accuracy => 
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_nb_default.png "Confusion Matrix: Naive Bayes - Default Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_nb_default.png "Bag-of-words: Confusion Matrix: Naive Bayes - Default Parameters")
 4. Naive Bayes - Best Parameters - Accuracy => 
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_nb_best.png "Confusion Matrix: Naive Bayes - Best Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_nb_best.png "Bag-of-words: Confusion Matrix: Naive Bayes - Best Parameters")
 5. Support Vector Machine - Default Parameters - Accuracy => 
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_svm_default.png "Confusion Matrix: Support Vector Machine - Default Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_svm_default.png "Bag-of-words: Confusion Matrix: Support Vector Machine - Default Parameters")
 6. Support Vector Machine - Best Parameters - Accuracy => 
-![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_svm_best.png "Confusion Matrix: Support Vector Machine - Best Parameters")
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_svm_best.png "Bag-of-words: Confusion Matrix: Support Vector Machine - Best Parameters")
 
+### Term Frequency Inverse Document Frequency (TfidVectorizer)
+
+1. Logical Regression - Default Parameters - Accuracy => **4**
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_lgr_default.png "TF-IDF: Confusion Matrix: Logistic Regression - Default Parameters")
+2. Logical Regression - Best Parameters - Accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_lgr_best.png "TF-IDF: Confusion Matrix: Logistic Regression - Best Parameters")
+3. Naive Bayes - Default Parameters - Accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_nb_default.png "TF-IDF: Confusion Matrix: Naive Bayes - Default Parameters")
+4. Naive Bayes - Best Parameters - Accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_nb_best.png "TF-IDF: Confusion Matrix: Naive Bayes - Best Parameters")
+5. Support Vector Machine - Default Parameters - Accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_svm_default.png "TF-IDF: Confusion Matrix: Support Vector Machine - Default Parameters")
+6. Support Vector Machine - Best Parameters - Accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_svm_best.png "TF-IDF: Confusion Matrix: Support Vector Machine - Best Parameters")
 
 
 
