@@ -19,7 +19,7 @@ We can then load the data perform data cleaning and preparation. Here are the hi
 After loading the data, here is a breakdown of the number of documents per category:
 
 |Category|Number of Documents|
-|=|=|
+|--------|-------------------|
 |Travel|75|
 |Human Resources|66|
 |Accountability|42|
