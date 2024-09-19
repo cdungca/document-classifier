@@ -104,13 +104,15 @@ In general, TF-IDF performs better than bag-or-words in our use case. The highes
 
 ||Precision|Recall|F1-score|Support|
 |--|--|--|--|--|
-|Accountability|0.67|0.83|0.74|12|
-|Human Resources|0.75|0.60|0.67|20|
-|Travel|0.86|0.90|0.88|20|
+|Accountability|0.77|0.83|0.80|12|
+|Human Resources|0.75|0.75|0.75|20|
+|Travel|0.89|0.85|0.87|20|
 | | | | | |
-|Accuracy| | |0.77|52|
-|Macro Avg|0.76|0.78|0.76|52|
-|Weighted Avg|0.77|0.77|0.77|52|
+|Accuracy| | |0.81|52|
+|Macro Avg|0.80|0.81|0.81|52|
+|Weighted Avg|0.81|0.81|0.81|52|
+
+The model has the highest accuracy of **89%** when predicting documents categorized as Travel. The classes in our dataset are relatively balanced since macro and weighted average are almost the same.
 
 
 
