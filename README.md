@@ -47,3 +47,20 @@ Accountability:
 
 ## Modeling
 
+To find the best model for our objective, we will be looking at accuracy as a measure in comparing the different models, feature extraction techniques, and hyperparameters.
+
+We will be using DummyClassifier as our baseline model. The accuracy for our baseline model is 38.46%.
+
+Here are the results using different combinations of model, feature extraction (CountVectorizer and TfidVectorizer), default, and best parameters
+
+### Bag-of-words (CountVectorizer)
+
+1. Logical Regression - default parameters - accuracy => 55.77%
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_default.png "Confusion Matrix: Logistic Regression - Default Parameters")
+2. Logical Regression - best parameters - accuracy => 
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_cvect_lgr_best.png "Confusion Matrix: Logistic Regression - Best Parameters")
+
+
+
+
+
