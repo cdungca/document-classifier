@@ -7,7 +7,7 @@ The documents for classification are taken from the UN website, called [Policy P
 ## Data Collection and Preparation
 To extract the documents with their corresponding label/category, we will first scrape the links in the [Search Portal](https://policy.un.org/policy-all) page. Once we've collected the urls, we will extract the full text on those pdf documents and store them in a csv file with their corresponding label. 
 
-We can then load the data perform data cleaning and preparation. Here are the high level steps for the cleaning/preparation:
+We can then load the data, perform data cleaning and preparation. Here are the high level steps for the cleaning/preparation:
 
 1. Remove rows with null values
 2. Change all texts to lower case
@@ -33,7 +33,7 @@ As we can see, we have an imbalance data set and there are too few documents for
 
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/category_distribution_after_cleaning.png "Final Data Set")
 
-Here are representations of the words found in each category:
+And here are representations of the words found in each category:
 
 Travel:
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/wordcloud_travel.png "Travel Word Cloud")
@@ -100,7 +100,7 @@ Here's a summary of the accuracy on unseen/test data:
 |TfidVectorizer - Support Vector Machine - Default Parameters|50|
 |TfidVectorizer - Support Vector Machine - Best Parameters|76.92|
 
-In general, TF-IDF performs better than bag-or-words in our use case. The highest accuracy of 80.77% is achieved with TF-IDF, Naive Bayes, and default parameters. Here's the classification report for that model:
+In general, TF-IDF performs better than bag-of-words in our use case. The highest accuracy of **80.77%** was achieved with TF-IDF, Naive Bayes, and default parameters. Here's the classification report for that model:
 
 ||Precision|Recall|F1-score|Support|
 |--|--|--|--|--|
