@@ -10,7 +10,7 @@ To extract the documents with their corresponding category, we will first scrape
 
 Data cleaning will be done on both csv generation and when we load the data in the Jupyter notebook. In the csv generation, we will be removing line breaks (e.g. \n) and other characters present in the full text extraction. The goal is to only have the words in the full text. 
 
-Here are the high level steps for cleaning and preparating the data in the Jupyter notebook:
+Here are the high level steps for cleaning and preparing the data in the Jupyter notebook:
 
 1. Remove rows with null values
 2. Change all texts to lower case
@@ -103,7 +103,7 @@ Here's a summary of the accuracy on unseen/test data:
 |TfidVectorizer - Support Vector Machine - Default Parameters|50|
 |TfidVectorizer - Support Vector Machine - Best Parameters|76.92|
 
-All of the models performed better compared to the baseline. In general, TF-IDF is better than bag-of-words in our particular use case. The highest accuracy of **80.77%** was achieved with TF-IDF feature selection, Naive Bayes, using default parameters. 
+All of the models performed better compared to the baseline. In general, TF-IDF is better than bag-of-words in our particular use case. The highest accuracy of **80.77%** was achieved with TF-IDF feature selection, Naive Bayes, with default parameters. 
 
 Here's the classification report and confusion matrix for that model:
 
