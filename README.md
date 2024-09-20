@@ -1,6 +1,6 @@
 # Document Classifier: Initial Report and Exploratory Data Analysis
 
-The aim of this study is to identify a model which will accurately predict the category of a specific document. Currently, the task of categorizing is done manually by a person upon uploading the document to the site. Automating this process will allow the person to focus more on strategic activities. This activity can also be used and scaled for other document classification tasks in the organization.
+The aim of this study is to identify a model which will accurately predict the category of a specific document. Currently, the task of categorizing is done manually by a person upon uploading the document to the site. Automating this process will allow the person to focus more on other strategic activities. This activity can also be used and scaled for other document classification tasks in the organization.
 
 The documents for classification are taken from the UN website, called [Policy Portal](https://policy.un.org). You can follow the analysis in the [Jupyter notebook](https://github.com/cdungca/document-classifier/blob/main/main.ipynb).
 
@@ -8,7 +8,9 @@ The documents for classification are taken from the UN website, called [Policy P
 
 To extract the documents with their corresponding category, we will first scrape the links in the [Search Portal](https://policy.un.org/policy-all) page. Once we've collected the urls, we will extract the full text on the pdf documents and save them in a csv file. 
 
-We can then load the data, perform data cleaning and preparation. Here are the high level steps for the cleaning/preparation:
+Data cleaning will be done on both csv generation and when we load the data in the Jupyter notebook. In the csv generation, we will be removing line breaks (e.g. \n) and other characters present in the full text extraction. The goal is to only have the words in the full text. 
+
+Here are the high level steps for cleaning and preparating the data in the Jupyter notebook:
 
 1. Remove rows with null values
 2. Change all texts to lower case
@@ -30,7 +32,7 @@ After loading the data, here is a breakdown of the number of documents per categ
 
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/category_distribution_before_cleaning.png "Category Distribution")
 
-As we can see, we have an imbalance data set and there are too few documents for Health and Wellbeing. We will remove those documents and do the analysis with 3 categories. Here's the distribution after cleaning the data:
+As we can see, we have an imbalance data set and there are too few documents for Health and Wellbeing. We will be removing these documents and do the analysis with 3 categories. Here's the distribution after cleaning the data:
 
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/category_distribution_after_cleaning.png "Final Data Set")
 
@@ -48,7 +50,7 @@ We will use word clouds to show the words found for each category:
 
 ## Modeling
 
-To find the best model for our objective, we will be looking at accuracy as a measure in comparing the different models, feature extraction techniques, and hyperparameters.
+To find the best model for our objective, we will be looking at accuracy in comparing the different models, feature extraction techniques, and hyperparameters.
 
 We will be using DummyClassifier as our baseline model. The accuracy for our baseline model is **38.46%**.
 
@@ -101,9 +103,9 @@ Here's a summary of the accuracy on unseen/test data:
 |TfidVectorizer - Support Vector Machine - Default Parameters|50|
 |TfidVectorizer - Support Vector Machine - Best Parameters|76.92|
 
-In general, TF-IDF performs better than bag-of-words in our use case. The highest accuracy of **80.77%** was achieved with TF-IDF, Naive Bayes, and default parameters. 
+All of the models performed better compared to the baseline. In general, TF-IDF is better than bag-of-words in our particular use case. The highest accuracy of **80.77%** was achieved with TF-IDF feature selection, Naive Bayes, using default parameters. 
 
-Here's the classification report for that model:
+Here's the classification report and confusion matrix for that model:
 
 ||Precision|Recall|F1-score|Support|
 |--|--|--|--|--|
@@ -116,6 +118,8 @@ Here's the classification report for that model:
 |Weighted Avg|0.81|0.81|0.81|52|
 
 The model has the highest precision of **89%** when predicting documents categorized as Travel. The classes in our dataset are relatively balanced since macro and weighted average are almost the same.
+
+![alt text](https://github.com/cdungca/document-classifier/blob/main/images/cm_tvect_nb_default.png "TF-IDF: Confusion Matrix: Naive Bayes - Default Parameters")
 
 
 
