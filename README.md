@@ -1,5 +1,7 @@
 # Document Classifier: Initial Report and Exploratory Data Analysis
 
+This is the first part of the capstone project for [UC Berkeley Professional Certificate in Machine Learning and Artificial Intelligence](https://em-executive.berkeley.edu/professional-certificate-machine-learning-artificial-intelligence). 
+
 The aim of this study is to identify a model which will accurately predict the category of a specific document. Currently, the task of categorizing is done manually by a person upon uploading the document to the site. Automating this process will allow the person to focus more on other strategic activities. This activity can also be used and scaled for other document classification tasks in the organization.
 
 The documents for classification are taken from the UN website, called [Policy Portal](https://policy.un.org). You can follow the analysis in the [Jupyter notebook](https://github.com/cdungca/document-classifier/blob/main/main.ipynb).
