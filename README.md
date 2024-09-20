@@ -1,11 +1,12 @@
 # Document Classifier: Initial Report and Exploratory Data Analysis
 
-The aim of this study is to identify a model which will accurately predict the category of a specific document. Currently, the task of categorizing is done manually by a person upon uploading the document to the site. Automating this process will allow the person to focus more on strategic activities. This activity can also be used and scaled for other document classification tasks. 
+The aim of this study is to identify a model which will accurately predict the category of a specific document. Currently, the task of categorizing is done manually by a person upon uploading the document to the site. Automating this process will allow the person to focus more on strategic activities. This activity can also be used and scaled for other document classification tasks in the organization.
 
 The documents for classification are taken from the UN website, called [Policy Portal](https://policy.un.org). You can follow the analysis in the [Jupyter notebook](https://github.com/cdungca/document-classifier/blob/main/main.ipynb).
 
 ## Data Collection and Preparation
-To extract the documents with their corresponding label/category, we will first scrape the links in the [Search Portal](https://policy.un.org/policy-all) page. Once we've collected the urls, we will extract the full text on those pdf documents and store them in a csv file with their corresponding label. 
+
+To extract the documents with their corresponding category, we will first scrape the links in the [Search Portal](https://policy.un.org/policy-all) page. Once we've collected the urls, we will extract the full text on the pdf documents and save them in a csv file. 
 
 We can then load the data, perform data cleaning and preparation. Here are the high level steps for the cleaning/preparation:
 
@@ -33,15 +34,15 @@ As we can see, we have an imbalance data set and there are too few documents for
 
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/category_distribution_after_cleaning.png "Final Data Set")
 
-And here are representations of the words found in each category:
+We will use word clouds to show the words found for each category:
 
-Travel:
+### Travel:
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/wordcloud_travel.png "Travel Word Cloud")
 
-Human Resources:
+### Human Resources:
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/wordcloud_hr.png "Human Resources Word Cloud")
 
-Accountability:
+### Accountability:
 ![alt text](https://github.com/cdungca/document-classifier/blob/main/images/wordcloud_accountability.png "Accountability Word Cloud")
 
 
@@ -51,7 +52,7 @@ To find the best model for our objective, we will be looking at accuracy as a me
 
 We will be using DummyClassifier as our baseline model. The accuracy for our baseline model is **38.46%**.
 
-Here are the results using different combinations of model, feature extraction (CountVectorizer and TfidVectorizer), default, and best parameters
+Here are the results using different combinations of model, feature extraction (CountVectorizer and TfidVectorizer), and hyperparameters
 
 ### Bag-of-words using CountVectorizer
 
@@ -100,7 +101,9 @@ Here's a summary of the accuracy on unseen/test data:
 |TfidVectorizer - Support Vector Machine - Default Parameters|50|
 |TfidVectorizer - Support Vector Machine - Best Parameters|76.92|
 
-In general, TF-IDF performs better than bag-of-words in our use case. The highest accuracy of **80.77%** was achieved with TF-IDF, Naive Bayes, and default parameters. Here's the classification report for that model:
+In general, TF-IDF performs better than bag-of-words in our use case. The highest accuracy of **80.77%** was achieved with TF-IDF, Naive Bayes, and default parameters. 
+
+Here's the classification report for that model:
 
 ||Precision|Recall|F1-score|Support|
 |--|--|--|--|--|
@@ -112,7 +115,7 @@ In general, TF-IDF performs better than bag-of-words in our use case. The highes
 |Macro Avg|0.80|0.81|0.81|52|
 |Weighted Avg|0.81|0.81|0.81|52|
 
-The model has the highest accuracy of **89%** when predicting documents categorized as Travel. The classes in our dataset are relatively balanced since macro and weighted average are almost the same.
+The model has the highest precision of **89%** when predicting documents categorized as Travel. The classes in our dataset are relatively balanced since macro and weighted average are almost the same.
 
 
 
